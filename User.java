@@ -2,6 +2,8 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
+    //test comment
+
     String fn; // First name
     String ln; //Last name
     String username;
