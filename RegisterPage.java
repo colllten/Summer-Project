@@ -61,8 +61,17 @@ public class RegisterPage extends JFrame {
             months.addItem(monthsA[i]);
         }
         JComboBox days = new JComboBox();
+        String[] daysA = new String[32];
+        for (int i = 1; i < 32; i++) {
+            daysA[i] = Integer.toString(i);
+        }
         JComboBox years = new JComboBox();
-
+        int[] yearsA = new int[100];
+        int x = 0;
+        for (int i = 1922; i < 2022; i++) {
+            yearsA[x] = i;
+            x++;
+        }
         //COMPONENTS//
     }
 }
