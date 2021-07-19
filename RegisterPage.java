@@ -30,6 +30,7 @@ public class RegisterPage extends JFrame {
         JLabel password = new JLabel("Password: ");
         JLabel cPassword = new JLabel("Confirm Password: ");
         JLabel showPassword = new JLabel("Show Password ");
+        JLabel phoneNum = new JLabel("Phone #: ");
 
         JCheckBoxMenuItem showPass = new JCheckBoxMenuItem();
         JButton register = new JButton("Register");
@@ -41,6 +42,7 @@ public class RegisterPage extends JFrame {
         JTextField passCText = new JTextField(10);
         JTextField emailText = new JTextField(10);
         JTextField usernameText = new JTextField(10);
+        JTextField phoneNumText = new JTextField(12);
 
         JComboBox months = new JComboBox();
         String[] monthsA = new String[13];
