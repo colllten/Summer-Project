@@ -8,11 +8,11 @@ public class User implements Serializable {
     String phoneNum; // For later use dynamically adding () & - between numbers
     String email;
     String bMonth;
-    String bDay;
+    int bDay;
     int bYear;
 
     public User(String fn, String ln, String username, String password, String phoneNum,
-                String email, String bMonth, String bDay, int bYear) {
+                String email, String bMonth, int bDay, int bYear) {
         this.fn = fn;
         this.ln = ln;
         this.username = username;
@@ -80,11 +80,11 @@ public class User implements Serializable {
         this.bMonth = bMonth;
     }
 
-    public String getbDay() {
+    public int getbDay() {
         return bDay;
     }
 
-    public void setbDay(String bDay) {
+    public void setbDay(int bDay) {
         this.bDay = bDay;
     }
 
