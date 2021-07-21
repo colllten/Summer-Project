@@ -2,10 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-// TODO: Scan database for matching email & username | Turn password text field into password field
+// TODO: Turn password text field into password field || Send newly created user to database
 
 public class RegisterPage extends JFrame {
 
@@ -16,7 +17,7 @@ public class RegisterPage extends JFrame {
         setSize(1000, 1000);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         //FRAME SETUP//
 
         //JPANEL SETUP//
@@ -99,6 +100,21 @@ public class RegisterPage extends JFrame {
                 Matcher matcher = pattern.matcher(passwordTest);
                 boolean hasSpecialChar = matcher.find();
 
+                //Checking for matching email
+                try {
+                    if (Driver.matchingEmail(emailText.getText())) {
+                        JOptionPane.showMessageDialog(null, "Email already in use", "Email Taken",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+
+                    if(Driver.matchingUsername(usernameText.getText())) {
+                        JOptionPane.showMessageDialog(null, "Username already in use", "Username Taken",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+
                 if (fNameText.getText().length() < 1 || fNameText.getText().length() > 12) {
                     JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
                             JOptionPane.WARNING_MESSAGE);
@@ -108,11 +124,9 @@ public class RegisterPage extends JFrame {
                 } else if (!emailText.getText().contains("@") || !emailText.getText().contains(".")) {
                     JOptionPane.showMessageDialog(null, "Invalid email", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                //TODO: matching email?
                 else if (usernameText.getText().length() < 3 || usernameText.getText().length() > 10) {
                     JOptionPane.showMessageDialog(null, "Invalid username length", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                //TODO: scan database for matching username
                 else if (!passText.getText().equals(passCText.getText())) {
                     JOptionPane.showMessageDialog(null, "Password fields do not match", "Error",
                             JOptionPane.ERROR_MESSAGE);
@@ -127,6 +141,8 @@ public class RegisterPage extends JFrame {
                             passText.getText(), phoneNumText.getText(), emailText.getText(),
                             months.getSelectedItem().toString(), Integer.parseInt(days.getSelectedItem().toString()),
                             Integer.parseInt(years.getSelectedItem().toString()));
+                    System.out.println(user);
+                    System.out.println("Registration Success!");
                 }
 
             }
@@ -188,6 +204,8 @@ public class RegisterPage extends JFrame {
         eastPanel.add(days, g);
         g.gridx++;
         eastPanel.add(years, g);
+        g.gridx++;
+        eastPanel.add(register, g);
 
 
 
@@ -195,8 +213,10 @@ public class RegisterPage extends JFrame {
     }
 
     public static void main(String[] args) {
-        User user = new User("Colten", "Glover", "colllten", "Mollymay10",
-                "7652995452", "coltenglover@yahoo.com", "July", 29, 2001);
-        System.out.println(user);
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new RegisterPage();
+            }
+        });
     }
 }

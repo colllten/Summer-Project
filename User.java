@@ -1,15 +1,15 @@
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String fn; // First name
-    String ln; //Last name
-    String username;
-    String password;
-    String phoneNum; // For later use dynamically adding () & - between numbers
-    String email;
-    String bMonth;
-    int bDay;
-    int bYear;
+    private String fn; // First name
+    private String ln; //Last name
+    private String username;
+    private String password;
+    private String phoneNum; // For later use dynamically adding () & - between numbers
+    private String email;
+    private String bMonth;
+    private int bDay;
+    private int bYear;
 
     public User(String fn, String ln, String username, String password, String phoneNum,
                 String email, String bMonth, int bDay, int bYear) {
