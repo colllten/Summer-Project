@@ -33,6 +33,10 @@ public class RegisterPage extends JFrame {
         eastPanel.setLayout(new GridBagLayout());
         add(eastPanel, BorderLayout.EAST);
         GridBagConstraints g = new GridBagConstraints();
+
+        JPanel southPanel = new JPanel();
+        southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.LINE_AXIS));
+        add(southPanel, BorderLayout.SOUTH);
         //JPANEL SETUP//
 
         //COMPONENTS//
@@ -93,59 +97,57 @@ public class RegisterPage extends JFrame {
         //COMPONENTS//
 
         //USER CREATION LOGIC//
-        register.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String passwordTest = passText.getText();
-                Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
-                Matcher matcher = pattern.matcher(passwordTest);
-                boolean hasSpecialChar = matcher.find();
+        register.addActionListener(e -> {
+            String passwordTest = passText.getText();
+            Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
+            Matcher matcher = pattern.matcher(passwordTest);
+            boolean hasSpecialChar = matcher.find();
 
-                //Checking for matching email
-                try {
-                    if (Driver.matchingEmail(emailText.getText())) {
-                        JOptionPane.showMessageDialog(null, "Email already in use", "Email Taken",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
-
-                    if(Driver.matchingUsername(usernameText.getText())) {
-                        JOptionPane.showMessageDialog(null, "Username already in use", "Username Taken",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-
-                if (fNameText.getText().length() < 1 || fNameText.getText().length() > 12) {
-                    JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
-                            JOptionPane.WARNING_MESSAGE);
-                } else if (lNameText.getText().length() < 1 || lNameText.getText().length() > 12) {
-                    JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
+            //Checking for matching email
+            try {
+                if (Driver.matchingEmail(emailText.getText())) {
+                    JOptionPane.showMessageDialog(null, "Email already in use", "Email Taken",
                             JOptionPane.ERROR_MESSAGE);
-                } else if (!emailText.getText().contains("@") || !emailText.getText().contains(".")) {
-                    JOptionPane.showMessageDialog(null, "Invalid email", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else if (usernameText.getText().length() < 3 || usernameText.getText().length() > 10) {
-                    JOptionPane.showMessageDialog(null, "Invalid username length", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else if (!passText.getText().equals(passCText.getText())) {
-                    JOptionPane.showMessageDialog(null, "Password fields do not match", "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                } else if (passText.getText().length() < 3 || passText.getText().length() > 12) {
-                    JOptionPane.showMessageDialog(null, "Invalid password length", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (!hasSpecialChar) {
-                    JOptionPane.showMessageDialog(null, "Password does not contain a special character",
-                            "Password Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else {
-                    User user = new User(fNameText.getText(), lNameText.getText(), usernameText.getText(),
-                            passText.getText(), phoneNumText.getText(), emailText.getText(),
-                            months.getSelectedItem().toString(), Integer.parseInt(days.getSelectedItem().toString()),
-                            Integer.parseInt(years.getSelectedItem().toString()));
-                    System.out.println(user);
-                    System.out.println("Registration Success!");
                 }
 
+                if(Driver.matchingUsername(usernameText.getText())) {
+                    JOptionPane.showMessageDialog(null, "Username already in use", "Username Taken",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
+
+            if (fNameText.getText().length() < 1 || fNameText.getText().length() > 12) {
+                JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
+                        JOptionPane.WARNING_MESSAGE);
+            } else if (lNameText.getText().length() < 1 || lNameText.getText().length() > 12) {
+                JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (!emailText.getText().contains("@") || !emailText.getText().contains(".")) {
+                JOptionPane.showMessageDialog(null, "Invalid email", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (usernameText.getText().length() < 3 || usernameText.getText().length() > 10) {
+                JOptionPane.showMessageDialog(null, "Invalid username length", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (!passText.getText().equals(passCText.getText())) {
+                JOptionPane.showMessageDialog(null, "Password fields do not match", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (passText.getText().length() < 3 || passText.getText().length() > 12) {
+                JOptionPane.showMessageDialog(null, "Invalid password length", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (!hasSpecialChar) {
+                JOptionPane.showMessageDialog(null, "Password does not contain a special character",
+                        "Password Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+                User user = new User(fNameText.getText(), lNameText.getText(), usernameText.getText(),
+                        passText.getText(), phoneNumText.getText(), emailText.getText(),
+                        months.getSelectedItem().toString(), Integer.parseInt(days.getSelectedItem().toString()),
+                        Integer.parseInt(years.getSelectedItem().toString()));
+                System.out.println(user);
+                System.out.println("Registration Success!");
+            }
+
         });
         //USER CREATION LOGIC//
 
@@ -205,7 +207,10 @@ public class RegisterPage extends JFrame {
         g.gridx++;
         eastPanel.add(years, g);
         g.gridx++;
-        eastPanel.add(register, g);
+
+        southPanel.add(Box.createRigidArea(new Dimension(0,5)));
+        southPanel.add(register);
+
 
 
 
