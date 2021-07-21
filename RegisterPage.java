@@ -16,12 +16,21 @@ public class RegisterPage extends JFrame {
         setSize(1000, 1000);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         //FRAME SETUP//
 
         //JPANEL SETUP//
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        add(panel, BorderLayout.CENTER);
+        JPanel westPanel = new JPanel();
+        westPanel.setLayout(new GridBagLayout());
+        add(westPanel, BorderLayout.WEST);
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new GridBagLayout());
+        add(centerPanel, BorderLayout.CENTER);
+
+        JPanel eastPanel = new JPanel();
+        eastPanel.setLayout(new GridBagLayout());
+        add(eastPanel, BorderLayout.EAST);
         GridBagConstraints g = new GridBagConstraints();
         //JPANEL SETUP//
 
@@ -70,12 +79,14 @@ public class RegisterPage extends JFrame {
         String[] daysA = new String[32];
         for (int i = 1; i < 32; i++) {
             daysA[i] = Integer.toString(i);
+            days.addItem(daysA[i]);
         }
         JComboBox years = new JComboBox();
         int[] yearsA = new int[100];
         int x = 0;
-        for (int i = 1922; i < 2022; i++) {
+        for (int i = 2022; i > 1922; i--) {
             yearsA[x] = i;
+            years.addItem(yearsA[x]);
             x++;
         }
         //COMPONENTS//
@@ -121,5 +132,69 @@ public class RegisterPage extends JFrame {
             }
         });
         //USER CREATION LOGIC//
+
+        //COMPONENT LAYOUT//
+        g.gridx = 0;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.CENTER;
+        westPanel.add(fName, g);
+        g.gridy++;
+        westPanel.add(lName, g);
+        g.gridy++;
+        westPanel.add(email, g);
+        g.gridy++;
+
+
+        g.gridx = 1;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.LINE_START;
+        westPanel.add(fNameText, g);
+        g.gridy++;
+        westPanel.add(lNameText, g);
+        g.gridy++;
+        westPanel.add(emailText, g);
+        g.gridy++;
+
+
+        g.gridx = 0;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.CENTER;
+        centerPanel.add(phoneNum, g);
+        g.gridy++;
+        centerPanel.add(username, g);
+        g.gridy++;
+        centerPanel.add(password, g);
+        g.gridy++;
+        centerPanel.add(cPassword, g);
+        g.gridx = 1;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.LINE_START;
+        centerPanel.add(phoneNumText, g);
+        g.gridy++;
+        centerPanel.add(usernameText, g);
+        g.gridy++;
+        centerPanel.add(passText, g);
+        g.gridy++;
+        centerPanel.add(passCText, g);
+
+
+        g.gridx = 0;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.CENTER;
+        eastPanel.add(dob, g);
+        g.gridx++;
+        eastPanel.add(months, g);
+        g.gridx++;
+        eastPanel.add(days, g);
+        g.gridx++;
+        eastPanel.add(years, g);
+
+
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new RegisterPage();
     }
 }
