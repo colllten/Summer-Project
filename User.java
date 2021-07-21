@@ -95,4 +95,11 @@ public class User implements Serializable {
     public void setbYear(int bYear) {
         this.bYear = bYear;
     }
+
+    public String toString() {
+        return String.format("First Name: " + getFn() + "\nLast Name: " + getLn() + "\nUsername: " +
+                getUsername() + "\nPassword: " + getPassword() + "\nEmail: " + getEmail() +
+                "\nPhone Number: " + getPhoneNum() + "\nMonth: " + getbMonth() + "\nDay: " + getbDay()
+                + "\nYear: " + getbYear());
+    }
 }

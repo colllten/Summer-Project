@@ -195,6 +195,8 @@ public class RegisterPage extends JFrame {
     }
 
     public static void main(String[] args) {
-        new RegisterPage();
+        User user = new User("Colten", "Glover", "colllten", "Mollymay10",
+                "7652995452", "coltenglover@yahoo.com", "July", 29, 2001);
+        System.out.println(user);
     }
 }
