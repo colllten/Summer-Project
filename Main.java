@@ -1,24 +1,11 @@
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.paint.*;
-import java.awt.*;
 import javafx.scene.*;
-import javafx.scene.text.Font;
-import javafx.scene.shape.*;
-import javafx.scene.image.*;
 
 public class Main extends Application {
 
@@ -31,7 +18,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws Exception {
 
-        Parent root1 = FXMLLoader.load(getClass().getResource("EventHandlingEx.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         stage.setScene(new Scene(root1));
         stage.show();
 
