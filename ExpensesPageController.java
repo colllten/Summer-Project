@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ExpensesPageController {
 
@@ -16,7 +17,7 @@ public class ExpensesPageController {
     private Stage stage;
     private Scene scene;
     public void switchToRegisterPage(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("RegisterPage.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterPage.fxml")));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

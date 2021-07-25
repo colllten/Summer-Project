@@ -10,8 +10,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
-   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #E5E7E9;">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
+   <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #E5E7E9;">
       <Label layoutX="167.0" layoutY="14.0" text="Personal Information" underline="true">
          <font>
             <Font name="Glockenspiel Regular" size="25.0" />
@@ -47,11 +47,11 @@
       <TextField fx:id="lnText" layoutX="224.0" layoutY="200.0" />
       <TextField fx:id="emailText" layoutX="224.0" layoutY="322.0" />
       <TextField fx:id="phText" layoutX="225.0" layoutY="460.0" />
-      <ComboBox fx:id="months" layoutX="225.0" layoutY="636.0" prefHeight="26.0" prefWidth="105.0" />
-      <ComboBox fx:id="days" layoutX="339.0" layoutY="636.0" prefHeight="26.0" prefWidth="68.0" />
-      <ComboBox fx:id="years" layoutX="420.0" layoutY="637.0" prefWidth="150.0" />
+      <ComboBox fx:id="months" layoutX="170.0" layoutY="635.0" prefHeight="26.0" prefWidth="105.0" />
+      <ComboBox fx:id="days" layoutX="288.0" layoutY="635.0" prefHeight="26.0" prefWidth="68.0" />
+      <ComboBox fx:id="years" layoutX="366.0" layoutY="636.0" prefWidth="150.0" />
    </AnchorPane>
-   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #E5E7E9;">
+   <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #E5E7E9;">
       <Label layoutX="200.0" layoutY="14.0" text="Account Details" underline="true">
          <font>
             <Font name="Glockenspiel Regular" size="25.0" />
