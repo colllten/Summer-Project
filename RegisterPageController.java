@@ -8,4 +8,16 @@ public class RegisterPageController {
     public void submit(User user) {
 
     }
+
+    public void cancel() {
+
+    }
+
+    public void checkCreds() {
+
+    }
+
+    public void createUser() {
+        
+    }
 }
