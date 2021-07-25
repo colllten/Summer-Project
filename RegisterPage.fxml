@@ -10,73 +10,76 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <Label layoutX="167.0" layoutY="14.0" text="Personal Information" underline="true">
-               <font>
-                  <Font name="Glockenspiel Regular" size="25.0" />
-               </font>
-            </Label>
-            <Label layoutX="12.0" layoutY="76.0" text="First Name" textAlignment="CENTER">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="12.0" layoutY="200.0" text="Last Name" textAlignment="CENTER">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="334.0" text="Email" textAlignment="CENTER">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="460.0" text="Phone Number" textAlignment="CENTER">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="636.0" text="Date of Birth" textAlignment="CENTER">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="cancelB" layoutX="530.0" layoutY="759.0" mnemonicParsing="false" onAction="#switchToLoginPage" text="Cancel" />
-            <TextField fx:id="fnText" layoutX="223.0" layoutY="76.0" promptText="Test" />
-            <TextField fx:id="lnText" layoutX="224.0" layoutY="200.0" />
-            <TextField fx:id="emailText" layoutX="224.0" layoutY="322.0" />
-            <TextField fx:id="phText" layoutX="225.0" layoutY="460.0" />
-            <ComboBox fx:id="months" layoutX="225.0" layoutY="636.0" prefHeight="26.0" prefWidth="105.0" />
-            <ComboBox fx:id="days" layoutX="339.0" layoutY="636.0" prefHeight="26.0" prefWidth="68.0" />
-            <ComboBox fx:id="years" layoutX="420.0" layoutY="637.0" prefWidth="150.0" />
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <Label layoutX="200.0" layoutY="14.0" text="Account Details" underline="true">
-               <font>
-                  <Font name="Glockenspiel Regular" size="25.0" />
-               </font>
-            </Label>
-            <Button fx:id="registerB" layoutX="14.0" layoutY="759.0" mnemonicParsing="false" onAction="#register" text="Register" />
-            <Label layoutX="11.0" layoutY="76.0" text="Username">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font></Label>
-            <Label layoutX="14.0" layoutY="200.0" text="Password">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font></Label>
-            <Label layoutX="14.0" layoutY="334.0" text="Confirm Password">
-               <font>
-                  <Font name="RowdyHeavy Regular" size="18.0" />
-               </font></Label>
-            <CheckBox layoutX="376.0" layoutY="204.0" mnemonicParsing="false" text="Show Password" />
-            <TextField fx:id="usernameText" layoutX="185.0" layoutY="76.0" />
-            <PasswordField fx:id="passText" layoutX="186.0" layoutY="200.0" />
-            <PasswordField fx:id="cPassText" layoutX="186.0" layoutY="334.0" />
-         </children></AnchorPane>
-  </items>
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="RegisterPageController">
+   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <Label layoutX="167.0" layoutY="14.0" text="Personal Information" underline="true">
+         <font>
+            <Font name="Glockenspiel Regular" size="25.0"/>
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="76.0" text="First Name" textAlignment="CENTER">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="200.0" text="Last Name" textAlignment="CENTER">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="334.0" text="Email" textAlignment="CENTER">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="460.0" text="Phone Number" textAlignment="CENTER">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="636.0" text="Date of Birth" textAlignment="CENTER">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Button fx:id="cancelB" layoutX="530.0" layoutY="759.0" mnemonicParsing="false" onAction="#switchToLoginPage"
+              text="Cancel"/>
+      <TextField fx:id="fnText" layoutX="223.0" layoutY="76.0" promptText="Test"/>
+      <TextField fx:id="lnText" layoutX="224.0" layoutY="200.0"/>
+      <TextField fx:id="emailText" layoutX="224.0" layoutY="322.0"/>
+      <TextField fx:id="phText" layoutX="225.0" layoutY="460.0"/>
+      <ComboBox fx:id="months" layoutX="225.0" layoutY="636.0" prefHeight="26.0" prefWidth="105.0"/>
+      <ComboBox fx:id="days" layoutX="339.0" layoutY="636.0" prefHeight="26.0" prefWidth="68.0"/>
+      <ComboBox fx:id="years" layoutX="420.0" layoutY="637.0" prefWidth="150.0"/>
+   </AnchorPane>
+   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <Label layoutX="200.0" layoutY="14.0" text="Account Details" underline="true">
+         <font>
+            <Font name="Glockenspiel Regular" size="25.0"/>
+         </font>
+      </Label>
+      <Button fx:id="registerB" layoutX="14.0" layoutY="759.0" mnemonicParsing="false" onAction="#register"
+              text="Register"/>
+      <Label layoutX="11.0" layoutY="76.0" text="Username">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="200.0" text="Password">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="334.0" text="Confirm Password">
+         <font>
+            <Font name="RowdyHeavy Regular" size="18.0"/>
+         </font>
+      </Label>
+      <CheckBox layoutX="376.0" layoutY="204.0" mnemonicParsing="false" text="Show Password"/>
+      <TextField fx:id="usernameText" layoutX="185.0" layoutY="76.0"/>
+      <PasswordField fx:id="passText" layoutX="186.0" layoutY="200.0"/>
+      <PasswordField fx:id="cPassText" layoutX="186.0" layoutY="334.0"/>
+   </AnchorPane>
 </SplitPane>
