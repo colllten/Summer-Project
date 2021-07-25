@@ -3,9 +3,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.*;
+
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -18,7 +22,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws Exception {
 
-        Parent root1 = FXMLLoader.load(getClass().getResource("RegisterPage.fxml"));
+        Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginPage.fxml")));
         stage.setScene(new Scene(root1));
         stage.show();
 
@@ -66,5 +70,7 @@ public class Main extends Application {
         stage.show();
 
          */
+
     }
+
 }

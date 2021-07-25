@@ -87,9 +87,9 @@ public class RegisterPage extends JFrame {
             days.addItem(daysA[i]);
         }
         JComboBox years = new JComboBox();
-        int[] yearsA = new int[100];
+        int[] yearsA = new int[50];
         int x = 0;
-        for (int i = 2022; i > 1922; i--) {
+        for (int i = 2022; i > 1972; i--) {
             yearsA[x] = i;
             years.addItem(yearsA[x]);
             x++;
@@ -119,8 +119,6 @@ public class RegisterPage extends JFrame {
             }
 
             if (fNameText.getText().length() < 1 || fNameText.getText().length() > 12) {
-                JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
-                        JOptionPane.WARNING_MESSAGE);
             } else if (lNameText.getText().length() < 1 || lNameText.getText().length() > 12) {
                 JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
                         JOptionPane.ERROR_MESSAGE);
