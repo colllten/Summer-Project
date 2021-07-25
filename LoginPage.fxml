@@ -8,22 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
    <children>
-      <Label layoutX="177.0" layoutY="154.0" text="Username: ">
+      <Label layoutX="177.0" layoutY="154.0" style="-fx-text-fill: #FFA500;" text="Username: ">
          <font>
             <Font name="Distant Galaxy" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="174.0" layoutY="190.0" text="Password: ">
+      <Label layoutX="174.0" layoutY="190.0" style="-fx-text-fill: #FFA500;" text="Password: ">
          <font>
             <Font name="Distant Galaxy" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="300.0" layoutY="151.0" />
-      <CheckBox layoutX="300.0" layoutY="223.0" mnemonicParsing="false" text="Show Password" />
-      <Button layoutX="252.0" layoutY="261.0" mnemonicParsing="false" prefWidth="75.0" text="Login" />
-      <Button fx:id="register" layoutX="252.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToRegisterPage" prefWidth="75.0" text="Register" />
-      <PasswordField layoutX="301.0" layoutY="188.0" />
+      <TextField layoutX="300.0" layoutY="151.0" style="-fx-background-color: #3F00FF;" />
+      <CheckBox layoutX="300.0" layoutY="223.0" mnemonicParsing="false" style="-fx-text-fill: #FFA500;" text="Show Password" />
+      <Button layoutX="252.0" layoutY="261.0" mnemonicParsing="false" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Login" />
+      <Button fx:id="register" layoutX="252.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToRegisterPage" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Register" />
+      <PasswordField layoutX="301.0" layoutY="188.0" style="-fx-background-color: #3F00FF;" />
+      <Label layoutX="165.0" layoutY="41.0" style="-fx-text-fill: #FFA500;" text="TraXpense" underline="true">
+         <font>
+            <Font name="Distant Galaxy" size="45.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
