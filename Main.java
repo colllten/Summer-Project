@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.*;
 import java.util.Objects;
@@ -17,13 +18,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginPage.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Welcome");
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("TXLogo.png"));
         stage.show();
-
-        /*
-        Image icon = new Image("icon.png"); Looks for image in src
-        stage.setFullScreen(true);
-        stage.setFullScreenExitHint("Press q to escape"); //Shows message of how to exit fullscreen mode
-        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("q"));
-         */
     }
 }
