@@ -42,13 +42,13 @@ public class RegisterPageController implements Initializable {
     @FXML
     private Button registerB;
     @FXML
-            private PasswordField passText;
+    private PasswordField passText;
     @FXML
     private PasswordField cPassText;
     @FXML
-            private TextField usernameText;
+    private TextField usernameText;
     @FXML
-            private TextField phText;
+    private TextField phText;
     @FXML
     private Button cancelB;
 
@@ -76,7 +76,6 @@ public class RegisterPageController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
          */
 
         if (fnText.getText().length() < 1 || fnText.getText().length() > 12) {
