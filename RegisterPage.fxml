@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="split" dividerPositions="0.5" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
+<SplitPane fx:id="split" dividerPositions="0.5" maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
    <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #E5E7E9;">
       <Label layoutX="134.0" layoutY="10.0" text="Personal Information" underline="true">
          <font>
@@ -47,9 +47,9 @@
       <TextField fx:id="lnText" layoutX="220.0" layoutY="200.0" />
       <TextField fx:id="emailText" layoutX="220.0" layoutY="340.0" />
       <TextField fx:id="phText" layoutX="220.0" layoutY="480.0" />
-      <ComboBox fx:id="months" layoutX="152.0" layoutY="620.0" prefHeight="26.0" prefWidth="105.0" />
-      <ComboBox fx:id="days" layoutX="266.0" layoutY="620.0" prefHeight="26.0" prefWidth="68.0" />
-      <ComboBox fx:id="years" layoutX="340.0" layoutY="620.0" prefWidth="150.0" />
+      <ComboBox fx:id="months" layoutX="152.0" layoutY="620.0" prefHeight="26.0" prefWidth="105.0" promptText="January" />
+      <ComboBox fx:id="days" layoutX="266.0" layoutY="620.0" prefHeight="26.0" prefWidth="68.0" promptText="1" />
+      <ComboBox fx:id="years" layoutX="340.0" layoutY="620.0" prefWidth="150.0" promptText="2001" />
    </AnchorPane>
    <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #E5E7E9;">
       <Label layoutX="167.0" layoutY="10.0" text="Account Details" underline="true">
