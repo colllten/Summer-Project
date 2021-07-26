@@ -6,28 +6,55 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
+
+<AnchorPane fx:id="anchor" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
    <children>
-      <Label layoutX="177.0" layoutY="154.0" style="-fx-text-fill: #FFA500;" text="Username: ">
+      <VBox layoutX="407.0" layoutY="343.0" spacing="50.0">
+         <children>
+            <Label style="-fx-text-fill: #FFA500;" text="Username: ">
+               <font>
+                  <Font name="Distant Galaxy" size="30.0" />
+               </font>
+            </Label>
+            <Label style="-fx-text-fill: #FFA500;" text="Password: ">
+               <font>
+                  <Font name="Distant Galaxy" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="611.0" layoutY="347.0" spacing="57.0">
+         <children>
+            <TextField />
+            <PasswordField />
+         </children>
+      </VBox>
+      <CheckBox layoutX="611.0" layoutY="475.0" mnemonicParsing="false" style="-fx-text-fill: #FFA500;" text="Show Password">
          <font>
-            <Font name="Distant Galaxy" size="18.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
-      </Label>
-      <Label layoutX="174.0" layoutY="190.0" style="-fx-text-fill: #FFA500;" text="Password: ">
+      </CheckBox>
+      <HBox layoutX="515.0" layoutY="730.0" spacing="20.0">
+         <children>
+            <Button fx:id="register" mnemonicParsing="false" onAction="#switchToRegisterPage" prefHeight="50.0" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Register">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Login">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Label layoutX="329.0" layoutY="10.0" style="-fx-text-fill: #FFA500;" text="TraXpense" underline="true">
          <font>
-            <Font name="Distant Galaxy" size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="300.0" layoutY="151.0" />
-      <CheckBox layoutX="300.0" layoutY="223.0" mnemonicParsing="false" style="-fx-text-fill: #FFA500;" text="Show Password" />
-      <Button layoutX="252.0" layoutY="261.0" mnemonicParsing="false" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Login" />
-      <Button fx:id="register" layoutX="252.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToRegisterPage" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Register" />
-      <PasswordField layoutX="301.0" layoutY="188.0" />
-      <Label layoutX="165.0" layoutY="41.0" style="-fx-text-fill: #FFA500;" text="TraXpense" underline="true">
-         <font>
-            <Font name="Distant Galaxy" size="45.0" />
+            <Font name="Distant Galaxy" size="90.0" />
          </font>
       </Label>
    </children>

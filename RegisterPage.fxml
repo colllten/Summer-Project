@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
+<SplitPane fx:id="split" dividerPositions="0.5" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterPageController">
    <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #E5E7E9;">
       <Label layoutX="134.0" layoutY="10.0" text="Personal Information" underline="true">
          <font>

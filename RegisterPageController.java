@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
@@ -51,6 +48,8 @@ public class RegisterPageController implements Initializable {
     private TextField phText;
     @FXML
     private Button cancelB;
+    @FXML
+    private SplitPane split;
 
     private Stage stage;
     private Scene scene;
