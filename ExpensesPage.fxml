@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
@@ -9,33 +10,45 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.5" maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0">
          <children>
-            <Label layoutX="103.0" layoutY="10.0" text="Profit" underline="true">
+            <Label layoutX="178.0" layoutY="10.0" text="Profit" underline="true">
                <font>
-                  <Font name="Distant Galaxy" size="25.0" />
+                  <Font name="Distant Galaxy" size="50.0" />
                </font></Label>
-            <Label layoutX="10.0" layoutY="60.0" text="Delivery $">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="120.0" text="Tips">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="180.0" text="Other">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <TextField layoutX="103.0" layoutY="58.0" text="0" />
-            <TextField layoutX="104.0" layoutY="118.0" text="0" />
-            <TextField layoutX="104.0" layoutY="178.0" text="0" />
-            <Button layoutX="230.0" layoutY="360.0" mnemonicParsing="false" text="Cancel" />
-            <Button layoutX="14.0" layoutY="338.0" mnemonicParsing="false">
+            <VBox layoutX="20.0" layoutY="100.0" spacing="75.0">
+               <children>
+                  <Label text="Delivery $">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Tips">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Other">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="193.0" layoutY="103.0" spacing="80.0">
+               <children>
+                  <TextField fx:id="delivery" text="0" />
+                  <TextField fx:id="tips" text="0" />
+                  <TextField fx:id="otherProfit" text="0" />
+               </children>
+            </VBox>
+            <Button fx:id="cancel" layoutX="530.0" layoutY="770.0" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="stats" layoutX="20.0" layoutY="750.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -47,42 +60,55 @@
                   <Tooltip text="Check Stats" />
                </tooltip>
             </Button>
+            <DatePicker fx:id="calendar" layoutX="239.0" layoutY="570.0" />
+            <Label layoutX="10.0" layoutY="567.0" text="Date of Profit / Loss">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0">
          <children>
-            <Label layoutX="115.0" layoutY="10.0" text="Loss" underline="true">
-               <font>
-                  <Font name="Distant Galaxy" size="25.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="60.0" text="Grocery">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="100.0" text="Gas">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="140.0" text="Bills">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="180.0" text="Rent">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="220.0" text="Food">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="300.0" text="Other">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Label layoutX="10.0" layoutY="260.0" text="Car Maitenance">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Label>
-            <Button layoutX="235.0" layoutY="355.0" mnemonicParsing="false">
+            <VBox layoutX="20.0" layoutY="100.0" spacing="70.0">
+               <children>
+                  <Label text="Grocery">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Gas">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Bills">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Rent">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Food">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Car Maitenance">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Other">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Button fx:id="settings" layoutX="541.0" layoutY="750.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -91,14 +117,23 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="17.0" layoutY="362.0" mnemonicParsing="false" text="Submit" />
-            <TextField layoutX="135.0" layoutY="60.0" text="0" />
-            <TextField layoutX="135.0" layoutY="100.0" text="0" />
-            <TextField layoutX="135.0" layoutY="140.0" text="0" />
-            <TextField layoutX="135.0" layoutY="180.0" text="0" />
-            <TextField layoutX="135.0" layoutY="220.0" text="0" />
-            <TextField layoutX="135.0" layoutY="260.0" text="0" />
-            <TextField layoutX="135.0" layoutY="300.0" text="0" />
+            <Button fx:id="submit" layoutX="20.0" layoutY="770.0" mnemonicParsing="false" text="Submit" />
+            <VBox layoutX="416.0" layoutY="103.0" spacing="75.0">
+               <children>
+                  <TextField fx:id="grocery" text="0" />
+                  <TextField fx:id="gas" text="0" />
+                  <TextField fx:id="bills" text="0" />
+                  <TextField fx:id="rent" text="0" />
+                  <TextField fx:id="food" text="0" />
+                  <TextField fx:id="car" text="0" />
+                  <TextField fx:id="otherLoss" text="0" />
+               </children>
+            </VBox>
+            <Label layoutX="232.0" layoutY="10.0" text="Loss" underline="true">
+               <font>
+                  <Font name="Distant Galaxy" size="50.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </items>
    <rotationAxis>
