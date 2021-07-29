@@ -17,9 +17,6 @@ public class LoginPageController extends Stage {
     private Stage stage;
     private Scene scene;
 
-    public LoginPageController() {
-        setFullScreen(true);
-    }
     public void switchToRegisterPage(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterPage.fxml")));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();

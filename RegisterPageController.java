@@ -8,12 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -55,28 +55,14 @@ public class RegisterPageController implements Initializable {
     private Stage stage;
     private Scene scene;
 
-    public void register(ActionEvent event) {
+    public void register(ActionEvent event) throws SQLException {
 
         String passwordTest = String.valueOf(passText.getText());
         Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
         Matcher matcher = pattern.matcher(passwordTest);
         boolean hasSpecialChar = matcher.find();
 
-        /*
-        try {
-            if (Driver.matchingEmail(emailText.getValue())) {
-                JOptionPane.showMessageDialog(null, "Email already in use", "Email Taken",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-
-            if(Driver.matchingUsername(usernameText.getValue())) {
-                JOptionPane.showMessageDialog(null, "Username already in use", "Username Taken",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-         */
+        checkCreds();
 
         if (fnText.getText().length() < 1 || fnText.getText().length() > 12) {
             JOptionPane.showMessageDialog(null, "Invalid first name length", "Error",
@@ -99,27 +85,30 @@ public class RegisterPageController implements Initializable {
             JOptionPane.showMessageDialog(null, "Password does not contain a special character",
                     "Password Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            User user = new User(fnText.getText(), lnText.getText(), usernameText.getText(),
+            User user = new User(lnText.getText(), fnText.getText(), usernameText.getText(),
                     passText.getText(), phText.getText(), emailText.getText(),
-                    months.getValue(), Integer.parseInt(days.getValue().toString()),
-                    Integer.parseInt(years.getValue().toString()));
-            sendData(event, user);
+                    months.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(days.getSelectionModel().getSelectedItem().toString()),
+                    Integer.parseInt(years.getSelectionModel().getSelectedItem().toString()));
+            Driver.sendToDB(user);
+            //sendData(event, user);
             System.out.println(user);
             System.out.println("Registration Success!");
         }
 
     }
 
-    public void cancel() {
-
-    }
-
     public void checkCreds() {
-
-    }
-
-    public void createUser() {
-        
+        try {
+            if (Driver.matchingEmail(emailText.getText())) {
+                JOptionPane.showMessageDialog(null, "Email already in use", "Email Taken",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (Driver.matchingUsername(usernameText.getText())) {
+                JOptionPane.showMessageDialog(null, "Username already in use", "Username Taken",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {

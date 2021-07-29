@@ -1,3 +1,4 @@
+import java.net.URI;
 import java.sql.*;
 
 public class Driver {
@@ -8,9 +9,9 @@ public class Driver {
     static final String QUERY = "SELECT birth_month FROM users";
     static final String STMT = "USE demo";
 
+    /*
     public static void main(String[] args) throws SQLException {
         // Open a connection
-        /*
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
             Statement stmt = conn.createStatement();
             stmt.execute(STMT);
@@ -22,24 +23,26 @@ public class Driver {
             e.printStackTrace();
         }
 
-         */
-
     }
+
+     */
     //PARAM User user
     public static boolean matchingEmail(String email) throws SQLException {
         boolean matches = false;
 
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            Statement stmt = conn.createStatement();
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement();){
             stmt.execute(STMT); //Puts us into demo
             String sql = "SELECT email FROM users";
             ResultSet rs = stmt.executeQuery(sql);
+
 
             while (rs.next()) {
                 String currentEmail = rs.getString("email");
                 if (email.equals(currentEmail)) {
                     matches = true;
                     stmt.close();
+                    rs.close();
                     return matches;
                 }
             }
@@ -50,11 +53,26 @@ public class Driver {
         return false;
     }
 
+    public static void sendToDB(User user) throws SQLException {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement();) {
+            stmt.execute(STMT);
+            String sql = "INSERT INTO users(last_name, first_name, email, username, password, birth_month," +
+                    " birth_day, birth_year, phone_number) VALUES ('"+ user.getLn() + "','" + user.getFn() + "','" +
+                    user.getEmail() + "','" + user.getUsername() + "','" + user.getPassword() + "','" +
+                    user.getbMonth() + "'," + user.getbDay() + "," + user.getbYear() + ",'" + user.getPhoneNum() + "')";
+            stmt.execute(sql);
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean matchingUsername(String username) throws SQLException {
         boolean matches = false;
 
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            Statement stmt = conn.createStatement();
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement();) {
             stmt.execute(STMT); //Puts us into demo
             String sql = "SELECT username FROM users";
             ResultSet rs = stmt.executeQuery(sql);
@@ -68,7 +86,7 @@ public class Driver {
                 }
             }
         }
-        catch (Exception e) {
+        catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
