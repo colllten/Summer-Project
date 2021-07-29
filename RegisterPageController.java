@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -102,6 +103,7 @@ public class RegisterPageController implements Initializable {
                     passText.getText(), phText.getText(), emailText.getText(),
                     months.getValue(), Integer.parseInt(days.getValue().toString()),
                     Integer.parseInt(years.getValue().toString()));
+            sendData(event, user);
             System.out.println(user);
             System.out.println("Registration Success!");
         }
@@ -132,5 +134,21 @@ public class RegisterPageController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void sendData(ActionEvent event, User user) {
+        User u = user;
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ExpensesPage.fxml")));
+            stage.setUserData(u);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println(String.format("Error: %s", e.getMessage()));
+        }
     }
 }

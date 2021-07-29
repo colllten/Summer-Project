@@ -42,7 +42,7 @@
             <Font name="RowdyHeavy Regular" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="cancelB" layoutX="420.0" layoutY="750.0" mnemonicParsing="false" onAction="#switchToLoginPage" text="Cancel" />
+      <Button fx:id="cancelB" layoutX="530.0" layoutY="759.0" mnemonicParsing="false" onAction="#switchToLoginPage" text="Cancel" />
       <TextField fx:id="fnText" layoutX="220.0" layoutY="60.0" />
       <TextField fx:id="lnText" layoutX="220.0" layoutY="200.0" />
       <TextField fx:id="emailText" layoutX="220.0" layoutY="340.0" />
@@ -57,7 +57,7 @@
             <Font name="Glockenspiel Regular" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="registerB" layoutX="14.0" layoutY="750.0" mnemonicParsing="false" onAction="#register" text="Register" />
+      <Button fx:id="registerB" layoutX="14.0" layoutY="759.0" mnemonicParsing="false" onAction="#sendData" text="Register" />
       <Label layoutX="10.0" layoutY="60.0" text="Username">
          <font>
             <Font name="RowdyHeavy Regular" size="18.0" />

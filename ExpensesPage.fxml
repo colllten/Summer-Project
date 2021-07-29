@@ -96,7 +96,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Car Maitenance">
+                  <Label text="Car Maintenance">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -116,6 +116,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <tooltip>
+                  <Tooltip text="Settings" />
+               </tooltip>
             </Button>
             <Button fx:id="submit" layoutX="20.0" layoutY="770.0" mnemonicParsing="false" text="Submit" />
             <VBox layoutX="416.0" layoutY="103.0" spacing="75.0">
