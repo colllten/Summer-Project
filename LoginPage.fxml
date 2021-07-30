@@ -29,8 +29,8 @@
       </VBox>
       <VBox layoutX="611.0" layoutY="347.0" spacing="57.0">
          <children>
-            <TextField />
-            <PasswordField />
+            <TextField fx:id="usernameText" />
+            <PasswordField fx:id="passwordText" />
          </children>
       </VBox>
       <CheckBox layoutX="611.0" layoutY="475.0" mnemonicParsing="false" style="-fx-text-fill: #FFA500;" text="Show Password">
@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Login">
+            <Button fx:id="login" mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="75.0" style="-fx-background-color: #FFA500;" text="Login">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

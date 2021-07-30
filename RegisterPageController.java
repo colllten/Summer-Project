@@ -90,7 +90,7 @@ public class RegisterPageController implements Initializable {
                     months.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(days.getSelectionModel().getSelectedItem().toString()),
                     Integer.parseInt(years.getSelectionModel().getSelectedItem().toString()));
             Driver.sendToDB(user);
-            //sendData(event, user);
+            sendData(event, user);
             System.out.println(user);
             System.out.println("Registration Success!");
         }
