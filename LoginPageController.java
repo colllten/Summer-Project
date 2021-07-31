@@ -63,9 +63,20 @@ public class LoginPageController extends Stage {
                     String currentPassword = rs1.getString("password");
                     if (password.equals(currentPassword)) {
                         passwordFound = true;
-                        JOptionPane.showMessageDialog(null, "Login Successful");
-                        // TODO: send expenses page the user info
-                        //sendData(e, );
+                        ResultSet rs2 = stmt.executeQuery("SELECT * FROM users WHERE username = '" + username + "'");
+                        User user = new User(null, null, null, null, null, null, null, 0, 0);
+                        while (rs2.next()) {
+                            user.setLn(rs2.getString("last_name"));
+                            user.setFn(rs2.getString("first_name"));
+                            user.setUsername(rs2.getString("username"));
+                            user.setPassword(rs2.getString("password"));
+                            user.setPhoneNum(rs2.getString("phone_number"));
+                            user.setEmail(rs2.getString("email"));
+                            user.setbMonth(rs2.getString("birth_month"));
+                            user.setbDay(rs2.getInt("birth_day"));
+                            user.setbYear(rs2.getInt("birth_year"));
+                        }
+                        sendData(e, user);
                         break;
                     }
                 }
