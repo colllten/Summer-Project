@@ -64,6 +64,8 @@ public class LoginPageController extends Stage {
                     if (password.equals(currentPassword)) {
                         passwordFound = true;
                         JOptionPane.showMessageDialog(null, "Login Successful");
+                        // TODO: send expenses page the user info
+                        //sendData(e, );
                         break;
                     }
                 }
