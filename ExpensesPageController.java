@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -45,6 +46,25 @@ public class ExpensesPageController {
     private Button stats;
     @FXML
     private Button settings;
+
+    @FXML
+    private void receiveData(MouseEvent event) {
+        // Step 1
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        // Step 2
+        User user = (User) stage.getUserData();
+        // Step 3
+        System.out.println(user.getFn());
+    }
+
+    private User userLogged;
+
+
+    public void initData(User user) {
+        userLogged = user;
+        
+    }
 
     public void switchToLoginPage(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginPage.fxml")));
