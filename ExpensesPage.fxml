@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" onMouseMoved="#receiveData" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ExpensesPageController">
+<SplitPane dividerPositions="0.5" maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ExpensesPageController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0">
          <children>
@@ -47,7 +47,7 @@
                   <TextField fx:id="otherProfit" text="0" />
                </children>
             </VBox>
-            <Button fx:id="cancel" layoutX="530.0" layoutY="770.0" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="cancel" layoutX="530.0" layoutY="770.0" mnemonicParsing="false" onAction="#test" text="Cancel" />
             <Button fx:id="stats" layoutX="20.0" layoutY="750.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">

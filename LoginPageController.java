@@ -15,14 +15,12 @@ import java.sql.*;
 import java.util.Objects;
 
 public class LoginPageController extends Stage {
-    @FXML
-    private Button register;
-    @FXML
-    private Button login;
-    @FXML
-    private TextField usernameText;
-    @FXML
-    private PasswordField passwordText;
+    @FXML private Button register;
+    @FXML private Button login;
+    @FXML private TextField usernameText;
+    @FXML private PasswordField passwordText;
+
+    private User loggedUser; // Used for @initData()
 
     private Stage stage;
     private Scene scene;
@@ -84,25 +82,25 @@ public class LoginPageController extends Stage {
                     JOptionPane.showMessageDialog(null, "Incorrect login information");
                 }
             }
-        } catch (SQLException throwables) {
+        } catch (SQLException | IOException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    public void sendData (ActionEvent e, User user) {
-        Node node = (Node) e.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.close();
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ExpensesPage.fxml")));
-            stage.setUserData(user);
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ioe) {
-            System.err.println(String.format("Error: %s", ioe.getMessage()));
-        }
+    public void sendData (ActionEvent e, User user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ExpensesPage.fxml"));
+        Parent expensesPageParent = loader.load();
+        Scene expensesPage = new Scene(expensesPageParent);
+
+        ExpensesPageController controller = loader.getController();
+        controller.initData(user);
+
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(expensesPage);
+        window.show();
     }
+
 
     public void switchToRegisterPage(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterPage.fxml")));

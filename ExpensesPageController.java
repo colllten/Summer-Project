@@ -17,53 +17,33 @@ public class ExpensesPageController {
     private Stage stage;
     private Scene scene;
 
-    @FXML
-    private TextField delivery;
-    @FXML
-    private TextField tips;
-    @FXML
-    private TextField otherProfit;
-    @FXML
-    private TextField grocery;
-    @FXML
-    private TextField gas;
-    @FXML
-    private TextField bills;
-    @FXML
-    private TextField rent;
-    @FXML
-    private TextField food;
-    @FXML
-    private TextField car;
-    @FXML
-    private TextField otherLoss;
+    @FXML private TextField delivery;
+    @FXML private TextField tips;
+    @FXML private TextField otherProfit;
+    @FXML private TextField grocery;
+    @FXML private TextField gas;
+    @FXML private TextField bills;
+    @FXML private TextField rent;
+    @FXML private TextField food;
+    @FXML private TextField car;
+    @FXML private TextField otherLoss;
+    @FXML private Button cancel;
+    @FXML private Button submit;
+    @FXML private Button stats;
+    @FXML private Button settings;
 
-    @FXML
-    private Button cancel;
-    @FXML
-    private Button submit;
-    @FXML
-    private Button stats;
-    @FXML
-    private Button settings;
+    private User loggedUser;
 
-    @FXML
-    private void receiveData(MouseEvent event) {
-        // Step 1
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        // Step 2
-        User user = (User) stage.getUserData();
-        // Step 3
-        System.out.println(user.getFn());
+    /**
+     * Accepts a User to initialize to send to home page
+     * @param user
+     */
+    public void initData(User user) {
+        loggedUser = user;
     }
 
-    private User userLogged;
-
-
-    public void initData(User user) {
-        userLogged = user;
-        
+    public void test(ActionEvent e) {
+        System.out.println(loggedUser.getFn());
     }
 
     public void switchToLoginPage(ActionEvent e) throws IOException {
