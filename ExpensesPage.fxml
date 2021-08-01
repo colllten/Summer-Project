@@ -47,7 +47,7 @@
                   <TextField fx:id="otherProfit" text="0" />
                </children>
             </VBox>
-            <Button fx:id="cancel" layoutX="530.0" layoutY="770.0" mnemonicParsing="false" onAction="#test" text="Cancel" />
+            <Button fx:id="cancel" layoutX="530.0" layoutY="770.0" mnemonicParsing="false" text="Cancel" />
             <Button fx:id="stats" layoutX="20.0" layoutY="750.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
@@ -108,7 +108,7 @@
                   </Label>
                </children>
             </VBox>
-            <Button fx:id="settings" layoutX="541.0" layoutY="750.0" mnemonicParsing="false">
+            <Button fx:id="settings" layoutX="541.0" layoutY="750.0" mnemonicParsing="false" onAction="#switchToSettings">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>

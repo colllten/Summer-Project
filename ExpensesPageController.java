@@ -42,8 +42,10 @@ public class ExpensesPageController {
         loggedUser = user;
     }
 
-    public void test(ActionEvent e) {
-        System.out.println(loggedUser.getFn());
+
+
+    public void switchToSettings (ActionEvent e, User user) throws IOException {
+        sendData(e, user);
     }
 
     public void switchToLoginPage(ActionEvent e) throws IOException {
@@ -52,5 +54,20 @@ public class ExpensesPageController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void sendData(ActionEvent actionEvent, User user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SettingsPage.fxml"));
+        Parent settingsPageParent = loader.load();
+        Scene settingsPage = new Scene(settingsPageParent);
+
+        SettingsPageController controller = loader.getController();
+        controller.initData(user);
+
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setScene(settingsPage);
+        window.show();
     }
 }
