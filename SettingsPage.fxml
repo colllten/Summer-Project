@@ -44,8 +44,8 @@
             </Label>
          </children>
       </VBox>
-      <Button layoutX="1090.0" layoutY="770.0" mnemonicParsing="false" text="Submit Changes" />
-      <Button layoutX="10.0" layoutY="770.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="submit" layoutX="1090.0" layoutY="770.0" mnemonicParsing="false" text="Submit Changes" />
+      <Button fx:id="cancel" layoutX="10.0" layoutY="770.0" mnemonicParsing="false" onAction="#switchToExpensesPage" text="Cancel" />
       <VBox layoutX="688.0" layoutY="240.0" spacing="47.0">
          <children>
             <TextField fx:id="usernameText" />

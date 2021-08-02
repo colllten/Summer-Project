@@ -62,7 +62,6 @@ public class Driver {
                     user.getEmail() + "','" + user.getUsername() + "','" + user.getPassword() + "','" +
                     user.getbMonth() + "'," + user.getbDay() + "," + user.getbYear() + ",'" + user.getPhoneNum() + "')";
             stmt.execute(sql);
-            stmt.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
