@@ -1,4 +1,5 @@
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -7,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -20,8 +23,6 @@ public class LoginPageController extends Stage {
     @FXML private TextField usernameText;
     @FXML private PasswordField passwordText;
 
-    private User loggedUser; // Used for @initData()
-
     private Stage stage;
     private Scene scene;
 
@@ -31,10 +32,10 @@ public class LoginPageController extends Stage {
     static final String QUERY = "SELECT username FROM users";
     static final String STMT = "USE demo";
 
-
     public void login(ActionEvent e) {
         String username = usernameText.getText();
         String password = passwordText.getText();
+
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement stmt = conn.createStatement()) {
             stmt.execute(STMT);
@@ -100,7 +101,6 @@ public class LoginPageController extends Stage {
         window.setScene(expensesPage);
         window.show();
     }
-
 
     public void switchToRegisterPage(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegisterPage.fxml")));
