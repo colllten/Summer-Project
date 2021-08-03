@@ -48,7 +48,7 @@
                </children>
             </VBox>
             <Button fx:id="cancel" layoutX="530.0" layoutY="770.0" mnemonicParsing="false" onAction="#switchToLoginPage" text="Cancel" />
-            <Button fx:id="stats" layoutX="20.0" layoutY="750.0" mnemonicParsing="false">
+            <Button fx:id="stats" layoutX="20.0" layoutY="750.0" mnemonicParsing="false" onAction="#switchToStats">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>

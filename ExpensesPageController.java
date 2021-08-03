@@ -55,8 +55,8 @@ public class ExpensesPageController {
         sendDataToSettings(e, loggedUser);
     }
 
-    public void switchToStats (ActionEvent e) {
-
+    public void switchToStats (ActionEvent e) throws SQLException, IOException {
+        sendDataToStats(e, loggedUser);
     }
 
     public void switchToLoginPage(ActionEvent e) throws IOException {
@@ -67,17 +67,17 @@ public class ExpensesPageController {
         stage.show();
     }
 
-    public void sendDataToStats(ActionEvent actionEvent, User user) throws IOException {
+    public void sendDataToStats(ActionEvent actionEvent, User user) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SettingsPage.fxml"));
-        Parent settingsPageParent = loader.load();
-        Scene settingsPage = new Scene(settingsPageParent);
+        loader.setLocation(getClass().getResource("StatsPage.fxml"));
+        Parent statsPageParent = loader.load();
+        Scene statsPage = new Scene(statsPageParent);
 
-        SettingsPageController controller = loader.getController();
+        StatsPageController controller = loader.getController();
         controller.initData(user);
 
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        window.setScene(settingsPage);
+        window.setScene(statsPage);
         window.show();
     }
 

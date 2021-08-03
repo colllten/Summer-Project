@@ -42,7 +42,7 @@ public class StatsPageController {
 
             // TODO: test this query in the DB
             //TODO: turn all of this into a function
-            rs = stmt.executeQuery("SELECT * FROM expenses where user_id = " + userID + "and month = 'JANUARY'");
+            rs = stmt.executeQuery("SELECT * FROM expenses where user_id = " + userID + " and month = 'JANUARY'");
             if (rs.isBeforeFirst()) {
                 ArrayList<Double> sums = new ArrayList<>();
                 while (rs.next()) {
@@ -52,7 +52,9 @@ public class StatsPageController {
                 for (int i = 0; i < sums.size(); i++) {
                     total = total + sums.get(i);
                 }
-                january.setText("January: " + total);
+                august.setText("January: " + total);
+            } else {
+                august.setText("January: 0");
             }
         }
     }
