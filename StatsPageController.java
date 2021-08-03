@@ -1,6 +1,14 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -25,6 +33,7 @@ public class StatsPageController {
     @FXML private Label december;
     @FXML private Label userStats;
     @FXML private Label totalPlusMinus;
+    @FXML private Button returnToExpenses;
 
     private User loggedUser;
 
@@ -102,5 +111,23 @@ public class StatsPageController {
             }
         }
         return totalAmount;
+    }
+
+    public void switchToExpensesPage(ActionEvent e) throws IOException {
+        sendDataToExpenses(e, loggedUser);
+    }
+
+    public void sendDataToExpenses(ActionEvent actionEvent, User user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ExpensesPage.fxml"));
+        Parent expensesPageParent = loader.load();
+        Scene expensesPage = new Scene(expensesPageParent);
+
+        ExpensesPageController controller = loader.getController();
+        controller.initData(user);
+
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setScene(expensesPage);
+        window.show();
     }
 }
