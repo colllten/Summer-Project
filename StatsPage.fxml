@@ -7,30 +7,71 @@
 
 <AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StatsPageController">
    <children>
-      <Label fx:id="userStats" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="18.0" prefWidth="1200.0">
+      <Label fx:id="userStats" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="78.0" prefWidth="1200.0" text="colllten's stats" underline="true">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Label>
-      <VBox layoutX="129.0" layoutY="440.0">
+      <VBox layoutX="10.0" layoutY="120.0" prefHeight="341.0" prefWidth="600.0" spacing="55.0">
          <children>
-            <Label fx:id="january" text="January" />
-            <Label fx:id="february" text="February" />
-            <Label fx:id="march" text="March" />
-            <Label fx:id="april" text="April" />
-            <Label fx:id="may" text="May" />
-            <Label fx:id="june" text="June" />
+            <Label fx:id="january" text="January">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="february" text="February">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="march" text="March">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="april" text="April">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="may" text="May">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="june" text="June">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
          </children>
       </VBox>
-      <VBox layoutX="949.0" layoutY="516.0">
+      <VBox layoutX="600.0" layoutY="120.0" prefHeight="216.0" prefWidth="600.0" spacing="55.0">
          <children>
-            <Label fx:id="july" text="July" />
-            <Label fx:id="august" text="August" />
-            <Label fx:id="september" text="September" />
-            <Label fx:id="october" text="October" />
-            <Label fx:id="november" text="November" />
-            <Label fx:id="december" text="December" />
+            <Label fx:id="july" text="July">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="august" text="August">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="september" text="September">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="october" text="October">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="november" text="November">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="december" text="December">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
          </children>
       </VBox>
+      <Label fx:id="totalPlusMinus" alignment="CENTER" contentDisplay="CENTER" layoutY="670.0" prefHeight="36.0" prefWidth="1200.0" text="TotalPlusMinus">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

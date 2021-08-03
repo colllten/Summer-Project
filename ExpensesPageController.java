@@ -9,6 +9,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Objects;
@@ -104,22 +106,26 @@ public class ExpensesPageController {
             while (rs.next()) {
                 userIDNum = rs.getInt("id");
             }
-            String sql = "INSERT INTO expenses (user_id, month, year, profit, groceries, car_maintenance, gas, bills," +
-                    " rent, food, other, net_profit) VALUES (" + userIDNum + ", '"
-                    + calendar.getValue().getMonth().toString() + "', " + calendar.getValue().getYear() + ", " +
-                    (Integer.parseInt(delivery.getText()) + Integer.parseInt(tips.getText()) +
-                            Integer.parseInt(otherProfit.getText())) + ", " +
-                    Integer.parseInt(grocery.getText()) + ", " + Integer.parseInt(car.getText()) + ", " +
-                    Integer.parseInt(gas.getText()) + ", " + Integer.parseInt(bills.getText()) + ", " +
-                    Integer.parseInt(rent.getText()) + ", " + Integer.parseInt(food.getText()) + ", " +
-                    Integer.parseInt(otherLoss.getText()) + ", " + ((Integer.parseInt(delivery.getText()) +
-                    Integer.parseInt(tips.getText()) + Integer.parseInt(otherProfit.getText())) -
-                    (Integer.parseInt(grocery.getText()) + Integer.parseInt(car.getText()) +
-                            Integer.parseInt(gas.getText()) + Integer.parseInt(bills.getText()) +
-                            Integer.parseInt(rent.getText()) + Integer.parseInt(food.getText()) +
-                            Integer.parseInt(otherLoss.getText()))) + ")";
-            stmt.execute(sql);
-            System.out.println("Expenses added!");
+            if (calendar.getValue() == null) {
+                JOptionPane.showMessageDialog(null, "Please select a date", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String sql = "INSERT INTO expenses (user_id, month, year, profit, groceries, car_maintenance, gas, bills," +
+                        " rent, food, other, net_profit) VALUES (" + userIDNum + ", '"
+                        + calendar.getValue().getMonth().toString() + "', " + calendar.getValue().getYear() + ", " +
+                        (Double.parseDouble(delivery.getText()) + Double.parseDouble(tips.getText()) +
+                                Double.parseDouble(otherProfit.getText())) + ", " +
+                        Double.parseDouble(grocery.getText()) + ", " + Double.parseDouble(car.getText()) + ", " +
+                        Double.parseDouble(gas.getText()) + ", " + Double.parseDouble(bills.getText()) + ", " +
+                        Double.parseDouble(rent.getText()) + ", " + Double.parseDouble(food.getText()) + ", " +
+                        Double.parseDouble(otherLoss.getText()) + ", " + ((Double.parseDouble(delivery.getText()) +
+                        Double.parseDouble(tips.getText()) + Double.parseDouble(otherProfit.getText())) -
+                        (Double.parseDouble(grocery.getText()) + Double.parseDouble(car.getText()) +
+                                Double.parseDouble(gas.getText()) + Double.parseDouble(bills.getText()) +
+                                Double.parseDouble(rent.getText()) + Double.parseDouble(food.getText()) +
+                                Double.parseDouble(otherLoss.getText()))) + ")";
+                stmt.execute(sql);
+                JOptionPane.showMessageDialog(null, "Expenses added!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 }
