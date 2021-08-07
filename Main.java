@@ -6,6 +6,8 @@ import javafx.stage.Stage;
 import javafx.scene.*;
 import java.util.Objects;
 
+// TODO: Create "tips" and "other" column in the expenses table in SQL
+
 public class Main extends Application {
 
     public static void main(String[] args) {

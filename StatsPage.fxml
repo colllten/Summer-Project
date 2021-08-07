@@ -75,5 +75,10 @@
          </font>
       </Label>
       <Button fx:id="returnToExpenses" layoutX="21.0" layoutY="761.0" mnemonicParsing="false" onAction="#switchToExpensesPage" text="Expenses" />
+      <Label fx:id="spendingMoney" alignment="CENTER" layoutY="743.0" prefHeight="36.0" prefWidth="1200.0" text="Spending Money">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

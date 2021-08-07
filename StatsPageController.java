@@ -32,6 +32,7 @@ public class StatsPageController {
     @FXML private Label november;
     @FXML private Label december;
     @FXML private Label userStats;
+    @FXML private Label spendingMoney;
     @FXML private Label totalPlusMinus;
     @FXML private Button returnToExpenses;
 
@@ -53,6 +54,7 @@ public class StatsPageController {
         december.setText(getMonthlyProfit("December", user.getUsername()));
         userStats.setText(user.getUsername() + "'s Stats");
         totalPlusMinus.setText("Total Profit : " + getTotalPlusMinus(user.getUsername()));
+        spendingMoney.setText(("Spending Money: " + getSpendingMoney(user.getUsername())));
     }
 
     public String getMonthlyProfit (String month, String username) {
@@ -76,8 +78,8 @@ public class StatsPageController {
                     sums.add(rs.getDouble("net_profit"));
                 }
                 double total = 0.00;
-                for (int i = 0; i < sums.size(); i++) {
-                    total = total + sums.get(i);
+                for (Double sum : sums) {
+                    total = total + sum;
                 }
                 labelText = month + ": " + total;
                 return labelText;
@@ -111,6 +113,29 @@ public class StatsPageController {
             }
         }
         return totalAmount;
+    }
+    
+    public double getSpendingMoney(String username) throws SQLException {
+        int userID = 0;
+        ArrayList<Double> spendingMoney = new ArrayList<>();
+        double spendingAmount = 0.0;
+    
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(STMT);
+            ResultSet rs = stmt.executeQuery("SELECT id FROM users WHERE username = '" + username + "'");
+            while (rs.next()) {
+                userID = rs.getInt("id");
+            }
+            rs = stmt.executeQuery("SELECT spending_money FROM expenses WHERE user_id = " + userID);
+            while (rs.next()) {
+                spendingMoney.add(rs.getDouble("spending_money"));
+            }
+            for (int i = 0; i < spendingMoney.size(); i++) {
+                spendingAmount = spendingAmount + spendingMoney.get(i);
+            }
+        }
+        return spendingAmount;
     }
 
     public void switchToExpensesPage(ActionEvent e) throws IOException {
