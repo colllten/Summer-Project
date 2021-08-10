@@ -123,8 +123,9 @@ public class ExpensesPageController {
                                 Double.parseDouble(gas.getText()) + Double.parseDouble(bills.getText()) +
                                 Double.parseDouble(rent.getText()) + Double.parseDouble(food.getText()) +
                                 Double.parseDouble(otherLoss.getText()))) + "," + (Double.parseDouble(tips.getText())
-                        * 0.25 + Double.parseDouble(otherProfit.getText()) * 0.5
-                        - Double.parseDouble(otherLoss.getText())) + ")";
+                        + Double.parseDouble(otherProfit.getText())
+                        - Double.parseDouble(otherLoss.getText())) + "," + (Double.parseDouble(tips.getText()) * 0.25 +
+                        Double.parseDouble(otherProfit.getText()) * 0.5 - Double.parseDouble(otherLoss.getText())) + ")";
                 stmt.execute(sql);
                 JOptionPane.showMessageDialog(null, "Expenses added!", "Success!", JOptionPane.INFORMATION_MESSAGE);
             }
