@@ -110,22 +110,27 @@ public class ExpensesPageController {
                 JOptionPane.showMessageDialog(null, "Please select a date", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 String sql = "INSERT INTO expenses (user_id, month, year, profit, groceries, car_maintenance, gas, bills," +
-                        " rent, food, other, net_profit, spending_money) VALUES (" + userIDNum + ", '"
-                        + calendar.getValue().getMonth().toString() + "', " + calendar.getValue().getYear() + ", " +
+                        " rent, food, other, net_profit, spending_money) VALUES (" +
+                        userIDNum + ", '"
+                        + calendar.getValue().getMonth().toString() + "', " + calendar.getValue().getYear()
+                        + ", " +
                         (Double.parseDouble(delivery.getText()) + Double.parseDouble(tips.getText()) +
                                 Double.parseDouble(otherProfit.getText())) + ", " +
-                        Double.parseDouble(grocery.getText()) + ", " + Double.parseDouble(car.getText()) + ", " +
-                        Double.parseDouble(gas.getText()) + ", " + Double.parseDouble(bills.getText()) + ", " +
-                        Double.parseDouble(rent.getText()) + ", " + Double.parseDouble(food.getText()) + ", " +
-                        Double.parseDouble(otherLoss.getText()) + ", " + ((Double.parseDouble(delivery.getText()) +
+                        Double.parseDouble(grocery.getText()) + ", "
+                        + Double.parseDouble(car.getText()) + ", " +
+                        Double.parseDouble(gas.getText()) + ", " +
+                        Double.parseDouble(bills.getText()) + ", " +
+                        Double.parseDouble(rent.getText()) + ", " +
+                        Double.parseDouble(food.getText()) + ", " +
+                        Double.parseDouble(otherLoss.getText()) + ", " +
+                        ((Double.parseDouble(delivery.getText()) +
                         Double.parseDouble(tips.getText()) + Double.parseDouble(otherProfit.getText())) -
                         (Double.parseDouble(grocery.getText()) + Double.parseDouble(car.getText()) +
                                 Double.parseDouble(gas.getText()) + Double.parseDouble(bills.getText()) +
                                 Double.parseDouble(rent.getText()) + Double.parseDouble(food.getText()) +
-                                Double.parseDouble(otherLoss.getText()))) + "," + (Double.parseDouble(tips.getText())
-                        + Double.parseDouble(otherProfit.getText())
-                        - Double.parseDouble(otherLoss.getText())) + "," + (Double.parseDouble(tips.getText()) * 0.25 +
-                        Double.parseDouble(otherProfit.getText()) * 0.5 - Double.parseDouble(otherLoss.getText())) + ")";
+                                Double.parseDouble(otherLoss.getText()))) + "," +
+                        (Double.parseDouble(tips.getText()) * 0.25 + Double.parseDouble(otherProfit.getText()) * 0.5
+                        - Double.parseDouble(otherLoss.getText()) - Double.parseDouble(food.getText())) + ")";
                 stmt.execute(sql);
                 JOptionPane.showMessageDialog(null, "Expenses added!", "Success!", JOptionPane.INFORMATION_MESSAGE);
             }
